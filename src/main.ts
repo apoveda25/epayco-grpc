@@ -9,12 +9,11 @@ async function bootstrap() {
     {
       transport: Transport.GRPC,
       options: {
-        // package: ['user', 'wallet', 'recharge'],
-        package: ['user'],
+        package: ['user', 'wallet', 'recharge'],
         protoPath: [
           join(__dirname, 'modules/users/user.proto'),
-          // join(__dirname, 'modules/wallets/wallet.proto'),
-          // join(__dirname, 'modules/recharges/recharge.proto'),
+          join(__dirname, 'modules/wallets/wallet.proto'),
+          join(__dirname, 'modules/recharges/recharge.proto'),
         ],
         url: process.env.APP_SERVICE_URL || 'localhost:3010',
       },

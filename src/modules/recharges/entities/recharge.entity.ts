@@ -2,26 +2,14 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Schema as mongooseSchema } from 'mongoose';
 import { Wallet } from '../../wallets/entities/wallet.entity';
 
-export type UserDocument = User & Document;
+export type RechargeDocument = Recharge & Document;
 
 @Schema()
-export class User {
+export class Recharge {
   _id: string;
 
   @Prop()
-  document: string;
-
-  @Prop()
-  name: string;
-
-  @Prop()
-  surname: string;
-
-  @Prop()
-  email: string;
-
-  @Prop()
-  cellphone: string;
+  mount: number;
 
   @Prop()
   createdAt: string;
@@ -39,4 +27,4 @@ export class User {
   wallet: Wallet;
 }
 
-export const UserSchema = SchemaFactory.createForClass(User);
+export const RechargeSchema = SchemaFactory.createForClass(Recharge);

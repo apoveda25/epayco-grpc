@@ -24,7 +24,9 @@ export class UsersService {
 
   async search(filters: SearchUserDto) {
     try {
-      return { users: await this.userModel.find(filters).exec() };
+      return {
+        users: await this.userModel.find(filters).populate('wallet').exec(),
+      };
     } catch (error) {
       throw new HttpException(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -32,7 +34,7 @@ export class UsersService {
 
   async find({ _id }: FindUserDto) {
     try {
-      return await this.userModel.findOne({ _id }).exec();
+      return await this.userModel.findOne({ _id }).populate('wallet').exec();
     } catch (error) {
       throw new HttpException(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -54,7 +56,7 @@ export class UsersService {
     try {
       const removed = await this.find({ _id });
 
-      await this.userModel.remove({ _id }).exec();
+      await this.userModel.deleteOne({ _id }).exec();
 
       return removed;
     } catch (error) {
