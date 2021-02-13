@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package user;
+
+service UsersService {
+  rpc create (UserCreate) returns (User) {}
+  rpc update (UserUpdate) returns (User) {}
+  rpc remove (UserRemove) returns (User) {}
+  rpc find (UserFind) returns (User) {}
+  rpc search (UserSearch) returns (Users) {}
+}
+
+message UserCreate {
+  string document = 1;
+  string name = 2;
+  string surname = 3;
+  string email = 4;
+  string cellphone = 5;
+  string createdBy = 6;
+}
+
+message UserUpdate {
+  string _id = 1;
+  optional string document = 2;
+  optional string name = 3;
+  optional string surname = 4;
+  optional string email = 5;
+  optional string cellphone = 6;
+  string updatedBy = 7;
+}
+
+message UserRemove {
+  string _id = 1;
+}
+
+message UserFind {
+  string _id = 1;
+}
+
+message UserSearch {
+  optional string _id = 1;
+  optional string document = 2;
+  optional string name = 3;
+  optional string surname = 4;
+  optional string email = 5;
+  optional string cellphone = 6;
+}
+
+message User {
+  string _id = 1;
+  string document = 2;
+  string name = 3;
+  string surname = 4;
+  string email = 5;
+  string cellphone = 6;
+  string createdAt = 7;
+  string updatedAt = 8;
+  string createdBy = 9;
+  string updatedBy = 10;
+}
+
+message Users {
+  repeated User users = 1;
+}
