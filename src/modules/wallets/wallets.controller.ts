@@ -3,12 +3,12 @@ import { GrpcMethod } from '@nestjs/microservices';
 import { WalletsService } from './wallets.service';
 import { CreateWalletDto } from './dto/create-wallet.dto';
 import { UpdateWalletDto } from './dto/update-wallet.dto';
-import { CreateResourcePipe } from '../../shared/create-resource.pipe';
+import { CreateResourcePipe } from '../../shared/pipes/create-resource.pipe';
+import { UpdateResourcePipe } from '../../shared/pipes/update-resource.pipe';
 import { WalletDocument } from './entities/wallet.entity';
 import { SearchWalletDto } from './dto/search-wallet.dto';
 import { SearchWalletsDto } from './dto/search-wallets.dto';
 import { FindWalletDto } from './dto/find-wallet.dto';
-import { UpdateResourcePipe } from '../../shared/update-resource.pipe';
 import { RemoveWalletDto } from './dto/remove-wallet.dto';
 
 @Controller()

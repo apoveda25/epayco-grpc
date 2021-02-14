@@ -1,9 +1,9 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { Wallet, WalletDocument } from './entities/wallet.entity';
 import { CreateWalletDto } from './dto/create-wallet.dto';
 import { UpdateWalletDto } from './dto/update-wallet.dto';
-import { InjectModel } from '@nestjs/mongoose';
-import { Wallet, WalletDocument } from './entities/wallet.entity';
-import { Model } from 'mongoose';
 import { SearchWalletDto } from './dto/search-wallet.dto';
 import { FindWalletDto } from './dto/find-wallet.dto';
 import { RemoveWalletDto } from './dto/remove-wallet.dto';
@@ -31,6 +31,7 @@ export class WalletsService {
           .find(filters)
           .populate('user')
           .populate('recharges')
+          .populate('payments')
           .exec(),
       };
     } catch (error) {
@@ -44,6 +45,7 @@ export class WalletsService {
         .findOne({ _id })
         .populate('user')
         .populate('recharges')
+        .populate('payments')
         .exec();
     } catch (error) {
       throw new HttpException(error, HttpStatus.INTERNAL_SERVER_ERROR);

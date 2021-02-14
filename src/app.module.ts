@@ -6,6 +6,9 @@ import { databaseFactory } from './config/config-database';
 import { UsersModule } from './modules/users/users.module';
 import { WalletsModule } from './modules/wallets/wallets.module';
 import { RechargesModule } from './modules/recharges/recharges.module';
+import { PaymentsModule } from './modules/payments/payments.module';
+import { AuthenticationModule } from './modules/authentication/authentication.module';
+import { SharedModule } from './shared/shared.module';
 
 @Module({
   imports: [
@@ -22,6 +25,9 @@ import { RechargesModule } from './modules/recharges/recharges.module';
     UsersModule,
     WalletsModule,
     RechargesModule,
+    PaymentsModule,
+    AuthenticationModule,
+    SharedModule,
   ],
 })
 export class AppModule {}

@@ -2,12 +2,11 @@ import {
   IsEmail,
   IsPhoneNumber,
   IsString,
-  IsMongoId,
   IsDateString,
   Length,
 } from 'class-validator';
 
-export class CreateUserDto {
+export class RegisterAutheticationDto {
   @IsString()
   document: string;
 
@@ -24,15 +23,17 @@ export class CreateUserDto {
   password: string;
 
   @IsPhoneNumber()
+  @IsString()
   cellphone: string;
 
   @IsDateString()
+  @IsString()
   createdAt: string;
 
   @IsString()
   updatedAt: string;
 
-  @IsMongoId()
+  @IsString()
   createdBy: string;
 
   @IsString()

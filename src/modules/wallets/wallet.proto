@@ -4,6 +4,7 @@ package wallet;
 
 import "../users/user.proto";
 import "../recharges/recharge.proto";
+import "../payments/payment.proto";
 
 service WalletsService {
   rpc create (WalletCreate) returns (WalletPopulate) {}
@@ -17,7 +18,6 @@ message WalletCreate {
   float balance = 1;
   string createdBy = 2;
   optional string user = 3;
-  repeated string recharges = 4;
 }
 
 message WalletUpdate {
@@ -26,6 +26,7 @@ message WalletUpdate {
   string updatedBy = 3;
   optional string user = 4;
   repeated string recharges = 5;
+  repeated string payments = 6;
 }
 
 message WalletRemove {
@@ -50,6 +51,7 @@ message WalletPopulate {
   string updatedBy = 6;
   optional User user = 7;
   repeated Recharge recharges = 8;
+  repeated Payment payments = 9;
 }
 
 message WalletsPopulate {

@@ -18,8 +18,9 @@ message UserCreate {
   string surname = 3;
   string email = 4;
   string cellphone = 5;
-  string createdBy = 6;
-  optional string wallet = 7;
+  string password = 6;
+  string createdBy = 7;
+  optional string wallet = 8;
 }
 
 message UserUpdate {

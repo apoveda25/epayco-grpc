@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package recharge;
 
-import "../recharges/recharge.proto";
+import "../wallets/wallet.proto";
 
 service RechargesService {
   rpc create (RechargeCreate) returns (RechargePopulate) {}

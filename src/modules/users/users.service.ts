@@ -32,9 +32,9 @@ export class UsersService {
     }
   }
 
-  async find({ _id }: FindUserDto) {
+  async find(filters: FindUserDto) {
     try {
-      return await this.userModel.findOne({ _id }).populate('wallet').exec();
+      return await this.userModel.findOne(filters).populate('wallet').exec();
     } catch (error) {
       throw new HttpException(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }

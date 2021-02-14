@@ -1,5 +1,5 @@
 app:
-  name: 'users-service-restful'
+  name: 'users-service-grpc'
   host: 'http://localhost'
   port: 3010
 

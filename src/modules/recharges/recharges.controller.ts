@@ -3,12 +3,12 @@ import { GrpcMethod } from '@nestjs/microservices';
 import { RechargesService } from './recharges.service';
 import { CreateRechargeDto } from './dto/create-recharge.dto';
 import { UpdateRechargeDto } from './dto/update-recharge.dto';
-import { CreateResourcePipe } from '../../shared/create-resource.pipe';
+import { CreateResourcePipe } from '../../shared/pipes/create-resource.pipe';
+import { UpdateResourcePipe } from '../../shared/pipes/update-resource.pipe';
 import { RechargeDocument } from './entities/recharge.entity';
 import { SearchRechargeDto } from './dto/search-recharge.dto';
 import { SearchRechargesDto } from './dto/search-recharges.dto';
 import { FindRechargeDto } from './dto/find-recharge.dto';
-import { UpdateResourcePipe } from '../../shared/update-resource.pipe';
 import { RemoveRechargeDto } from './dto/remove-recharge.dto';
 
 @Controller()

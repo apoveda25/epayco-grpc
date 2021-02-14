@@ -7,15 +7,16 @@ import { UserDocument } from './entities/user.entity';
 import { SearchUserDto } from './dto/search-user.dto';
 import { FindUserDto } from './dto/find-user.dto';
 import { RemoveUserDto } from './dto/remove-user.dto';
-import { CreateResourcePipe } from '../../shared/create-resource.pipe';
-import { UpdateResourcePipe } from '../../shared/update-resource.pipe';
+import { CreateResourcePipe } from '../../shared/pipes/create-resource.pipe';
+import { UpdateResourcePipe } from '../../shared/pipes/update-resource.pipe';
 import { SearchUsersDto } from './dto/search-users.dto';
+import { HashPasswordPipe } from '../../shared/pipes/hash-password.pipe';
 
 @Controller()
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @UsePipes(CreateResourcePipe, ValidationPipe)
+  @UsePipes(CreateResourcePipe, ValidationPipe, HashPasswordPipe)
   @GrpcMethod('UsersService', 'create')
   async create(data: CreateUserDto): Promise<UserDocument> {
     return await this.usersService.create(data);

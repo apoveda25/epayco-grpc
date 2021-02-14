@@ -8,7 +8,6 @@ import {
 
 export class SearchUserDto {
   @IsMongoId()
-  @IsString()
   @IsOptional()
   _id?: string;
 
@@ -25,12 +24,10 @@ export class SearchUserDto {
   surname?: string;
 
   @IsEmail()
-  @IsString()
   @IsOptional()
   email?: string;
 
   @IsPhoneNumber()
-  @IsString()
   @IsOptional()
   cellphone?: string;
 }
