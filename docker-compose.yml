@@ -11,7 +11,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - /path/local:/data/db
+      - $PWD/../mongodb/database:/data/db
 
   mongo-express:
     image: mongo-express
