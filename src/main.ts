@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
-import { AppModule } from './app.module';
 import { join } from 'path';
+import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
@@ -17,7 +17,7 @@ async function bootstrap() {
           join(__dirname, 'modules/recharges/recharge.proto'),
           join(__dirname, 'modules/payments/payment.proto'),
         ],
-        url: process.env.APP_SERVICE_URL || 'localhost:3010',
+        url: process.env.APP_SERVICE_URL || 'localhost:4010',
       },
     },
   );
